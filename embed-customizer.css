@@ -255,11 +255,11 @@
 .embed_profile-tab-link.w--current:before {
     content: "";
     opacity: .25;
-    height: 100%;
     position: absolute;
     z-index: -1;
     right: 0;
     top: 0;
     width: 100%;
+    height: 100%;
     background-color: var(--embed-accent-color);
 }
