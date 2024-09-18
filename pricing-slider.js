@@ -1,4 +1,4 @@
-// Manually assigned values for each input value in Yearly
+// Manually assigned values for each possible input value in Yearly
 const valuesYearly = {
   15: { price: '$117', contacts: '15,000' },
   20: { price: '$157', contacts: '20,000' },
@@ -11,7 +11,7 @@ const valuesYearly = {
   55: { price: 'Let\u2019s talk', contacts: '50,000+' }
 };
 
-// Manually assigned values for each input value in Monthly
+// Manually assigned values for each possible input value in Monthly
 const valuesMonthly = {
   15: { price: '$147', contacts: '15,000' },
   20: { price: '$197', contacts: '20,000' },
@@ -46,8 +46,18 @@ function updateContent(input, price, contactsK, contactsNum, perText, values) {
 
 // Function to sync inputs and update their corresponding content
 function syncInputs(value) {
+  // Sync the inputs
   inputYearly.value = value;
   inputMonthly.value = value;
+
+  // Sync the handles
+  handleYearly.style.left = `${(value - 15) / 40 * 100}%`;
+  handleMonthly.style.left = `${(value - 15) / 40 * 100}%`;
+
+  // Sync the fills
+  fillYearly.style.width = `${(value - 15) / 40 * 100}%`;
+  fillMonthly.style.width = `${(value - 15) / 40 * 100}%`;
+
   updateContent(inputYearly, priceYearly, contactsKYearly, contactsNumYearly, perTextYearly, valuesYearly);
   updateContent(inputMonthly, priceMonthly, contactsKMonthly, contactsNumMonthly, perTextMonthly, valuesMonthly);
 }
@@ -69,9 +79,11 @@ const contactsKMonthly = Monthly.querySelector('.contacts-k');
 const contactsNumMonthly = Monthly.querySelector('.contacts-num');
 const perTextMonthly = Monthly.querySelector('.per-text');
 
-// // Add event listeners to update content on input change
-// inputYearly.addEventListener('input', () => updateContent(inputYearly, priceYearly, contactsKYearly, contactsNumYearly, perTextYearly, valuesYearly));
-// inputMonthly.addEventListener('input', () => updateContent(inputMonthly, priceMonthly, contactsKMonthly, contactsNumMonthly, perTextMonthly, valuesMonthly));
+// Get handles and fills
+const handleYearly = Yearly.querySelector('[fs-rangeslider-element="handle"]');
+const fillYearly = Yearly.querySelector('[fs-rangeslider-element="fill"]');
+const handleMonthly = Monthly.querySelector('[fs-rangeslider-element="handle"]');
+const fillMonthly = Monthly.querySelector('[fs-rangeslider-element="fill"]');
 
 // Add event listeners to sync inputs and update content
 inputYearly.addEventListener('input', () => syncInputs(inputYearly.value));
