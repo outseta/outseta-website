@@ -112,7 +112,7 @@
     --embed-bg-color: var(--embed-bg-color-dark-1);
 
     /* Dark - Secondary Button */
-    --embed-secondary-btn-bg-color: var(--embed-white-100);
+    --embed-secondary-btn-bg-color: var(--embed-white-200);
     --embed-secondary-btn-shadow-hover: inset 0px 0px 0px 1px var(--embed-white-300), inset 0px 0px 0px 100px rgba(255, 255, 255, 0.02), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
     /* Dark - Input */
