@@ -88,10 +88,6 @@
             outline-style: solid;
             outline-width: 1px;
         }
-
-        &:active {
-            border-color: var(--component-input--border-color);
-        }
     }
 
     .o--Input--cornerShape-rounded,
