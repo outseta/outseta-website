@@ -289,9 +289,11 @@
     /* //////////////////// Page embed specific styles //////////////////// */
 
     &:not(.o--Widget--popup) {
-        .o--header,
-        .o--SectionGroup--sectionGroup:has(h1) {
-            display: none;
+        &:not(.o--App--supportWidget) {
+            .o--header,
+            .o--SectionGroup--sectionGroup:has(h1) {
+                display: none;
+            }
         }
 
         .o--Widget--widgetBody {
