@@ -70,13 +70,16 @@
 
     /* //////////////////// Inputs //////////////////// */
 
-    .o--Input--input {
+    .o--Input--input,
+    .o--TextArea--textArea {
         padding: var(--component-button--vertical-padding) var(--component-button--horizontal-padding-small);
         box-shadow: var(--shadow-input);
     }
 
-    .o--Input--fieldStyle-light-border {
+    .o--Input--fieldStyle-light-border,
+    .o--TextArea--fieldStyle-light-border {
         border: 1px solid var(--component-input--border-color);
+        resize: vertical;
 
         &:focus {
             border-color: var(--colors-black--1000);
@@ -85,9 +88,14 @@
             outline-style: solid;
             outline-width: 1px;
         }
+
+        &:active {
+            border-color: var(--component-input--border-color);
+        }
     }
 
-    .o--Input--cornerShape-rounded {
+    .o--Input--cornerShape-rounded,
+    .o--TextArea--cornerShape-rounded {
         border-radius: var(--component-input--border-radius);
     }
 
@@ -99,6 +107,36 @@
             }
             .material-icons {
                 font-size: 20px;
+            }
+        }
+    }
+
+    /* //////////////////// File upload //////////////////// */
+
+    .o--FileUpload--FileUpload {
+        &.o--FileUpload--displayMode-light {
+            .o--FileUpload--dropzone {
+                border: 1px dashed var(--component-input--border-color);
+                border-radius: var(--component-input--border-radius);
+
+                p {
+                    i {
+                        margin-right: 4px;
+                    }
+                }
+            }
+
+            .o--FileUpload--file {
+                align-items: center;
+                border-radius: var(--component-input--border-radius);
+                background-color: #fff;
+                box-shadow: var(--shadow-input);
+                border: 1px solid var(--component-input--border-color);
+                overflow-wrap: anywhere;
+    
+                i, a {
+                    line-height: inherit;
+                }
             }
         }
     }
