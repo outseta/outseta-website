@@ -25,9 +25,7 @@ window.addEventListener('scroll', function() {
   
   if (window.scrollY > 0) {
     root.style.setProperty('--component-navbar--background-color', 'var(--colors-white--1000)');
-    root.style.setProperty('--component-navbar--padding-top', '0.5rem');
   } else {
     root.style.setProperty('--component-navbar--background-color', 'var(--colors-white--300)');
-    root.style.setProperty('--component-navbar--padding-top', '1.5rem');
   }
 });
