@@ -1,3 +1,32 @@
+// Define and register the plugin
+const verticalLinePlugin = {
+    id: 'verticalLinePlugin',
+    beforeDraw: function(chart, args, options) {
+      if (chart.tooltip._active && chart.tooltip._active.length) {
+        const ctx = chart.ctx;
+        const activePoint = chart.tooltip._active[0];
+        const x = activePoint.element.x;
+        const topY = chart.scales.y.top;
+        const bottomY = chart.scales.y.bottom;
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.setLineDash([3, 2]);
+        ctx.moveTo(x, topY);
+        ctx.lineTo(x, bottomY);
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = 'rgba(41, 0, 41, 0.2)'; // Customize color as needed
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.restore();
+      }
+    }
+  };
+
+// Register the plugin with Chart.js
+Chart.register(verticalLinePlugin);
+  
+
 const ctx = document.getElementById('myLineChart').getContext('2d');
 const myLineChart = new Chart(ctx, {
     type: 'line',
@@ -38,6 +67,7 @@ const myLineChart = new Chart(ctx, {
               display: false
             },
             tooltip: {
+                mode: 'index',
                 backgroundColor: '#240029',
                 caretSize: 0,
                 callbacks: {
@@ -58,7 +88,7 @@ const myLineChart = new Chart(ctx, {
         },
         interaction: {
             axis: 'x',
-            mode: 'nearest',
+            mode: 'index',
             intersect: false
         },
         scales: {
