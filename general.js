@@ -19,13 +19,13 @@
 //   }, 200); // Match the duration of the opacity transition
 // });
 
-// Change header background color on scroll 
-window.addEventListener('scroll', function() {
-  const root = document.documentElement;
-  
-  if (window.scrollY > 0) {
-    root.style.setProperty('--component-navbar--background-color', 'var(--colors-white--1000)');
-  } else {
-    root.style.setProperty('--component-navbar--background-color', 'var(--colors-white--300)');
-  }
-});
+// Check if user has visited Webflow migration page
+// If they have, show offer CTA
+if (localStorage.getItem('visitedWebflowMigrationPage') === 'true') {
+    console.log('Visited page');
+    document.querySelector('#migrateWebflow').style.display = 'block'; // Show the Webflow migrate CTA
+    document.querySelector('#migrateGeneral').style.display = 'none'; // Hide the general migrate CTA
+} else {
+    document.querySelector('#migrateWebflow').style.display = 'none'; // Hide the element
+}
+
