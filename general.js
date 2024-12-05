@@ -19,13 +19,29 @@
 //   }, 200); // Match the duration of the opacity transition
 // });
 
-// Check if user has visited Webflow migration page
-// If they have, show offer CTA
-if (localStorage.getItem('visitedWebflowMigrationPage') === 'true') {
-    console.log('Visited page');
-    document.querySelector('#migrateWebflow').style.display = 'block'; // Show the Webflow migrate CTA
-    document.querySelector('#migrateGeneral').style.display = 'none'; // Hide the general migrate CTA
-} else {
-    document.querySelector('#migrateWebflow').style.display = 'none'; // Hide the element
+// Function to get a local storage item with expiry check
+function getItemWithExpiry(key) {
+    const dataString = localStorage.getItem(key);
+    if (!dataString) {
+        return null; // No item found
+    }
+    const data = JSON.parse(dataString);
+    const currentTime = Date.now();
+
+    if (currentTime > data.expiry) {
+        localStorage.removeItem(key); // Remove expired item
+        return null; // Expired item
+    }
+    return data.value; // Return valid item
 }
 
+// Check the flag and toggle visibility of the Webflow migrate CTA
+const visited = getItemWithExpiry('visitedWebflowMigrationPage');
+if (visited) {
+    // User has visited the specific page
+    document.querySelector('#migrateWebflow').style.display = 'block'; // Show Webflow migrate CTA
+    document.querySelector('#migrateGeneral').style.display = 'none'; // Hide general migrate CTA
+} else {
+    // User has NOT visited or the visit data has expired
+    document.querySelector('#migrateWebflow').style.display = 'none'; // Hide Webflow migrate CTA
+}
