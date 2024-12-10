@@ -257,16 +257,24 @@
     /* //////////////////// Charge summary //////////////////// */
 
     .o--ChargeSummary--chargeSummary {
-        display: none;
+        /* display: none; */
     }
 
     .o--ChargeSummary--invoiceRow {
+        &.o--ChargeSummary--discount {
+            gap: 16px;
+        }
+
         &:last-child {
             .o--ChargeSummary--invoiceRowWhen,
             .o--ChargeSummary--invoiceRowPrice {
                 font-weight: 500;
             }
         }
+    }
+
+    .o--ChargeSummary--info {
+        display: none;
     }
 
     .state-Checkout {
@@ -277,10 +285,29 @@
         }
     }
 
+    /* //////////////////// Badge //////////////////// */
+
+    .o--Badge--badge {
+        font-size: 12px;
+        gap: 4px;
+
+        .material-icons {
+            margin-left: 0;
+            width: 14px;
+            height: 14px;
+        }
+    }
+
     /* //////////////////// Popup specific styles //////////////////// */
 
     &.o--Widget--popup {
-        max-width: 25rem;
+        max-width: 26rem;
+
+        &:has(.state-Register, .state-Checkout),
+        &.o--App--leadCaptureWidget {
+            max-width: 30rem;
+        }
+        
     }
 
     @media only screen and (min-width: 600px) {
