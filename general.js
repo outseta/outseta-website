@@ -3,20 +3,23 @@ const contextMenuTrigger = document.querySelector(".context-menu-trigger");
 const contextMenu = document.querySelector(".context-menu");
 
 contextMenuTrigger.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
+    e.preventDefault();
   
-  // Show the context menu with a smooth opacity transition
-  contextMenu.style.visibility = "visible";
-  contextMenu.classList.add("cc-show");
+    // Show the context menu with a smooth opacity transition
+    contextMenu.style.visibility = "visible";
+    contextMenu.classList.add("cc-show");
 });
 
 document.body.addEventListener("click", function () {
-  contextMenu.classList.remove("cc-show"); // Remove the class to hide the menu
+    // Delay the removal of the "cc-show" class
+    setTimeout(function () {
+        contextMenu.classList.remove("cc-show"); // Remove the class to hide the menu
   
-  // Wait for the opacity transition to finish (e.g., 300ms) before hiding the element
-  setTimeout(function () {
-    contextMenu.style.visibility = "hidden";
-  }, 200); // Match the duration of the opacity transition
+        // Wait for the opacity transition to finish before hiding the element
+        setTimeout(function () {
+            contextMenu.style.visibility = "hidden";
+        }, 400); // Match the duration of the opacity transition
+    }, 200); // Delay before removing the class
 });
 
 // Function to get a local storage item with expiry check
