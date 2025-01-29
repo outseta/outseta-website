@@ -207,6 +207,15 @@
     .o--SignInWithGoogle--btnGoogleSignin {
         width: 100%;
 
+        & > div {
+            display: flex;
+            justify-content: center;
+
+            & > div:has([role="button"]) {
+                width: 100%;
+            }
+        }
+
         [role="button"] {
             border-radius: var(--component-button--border-radius);
             border-color: var(--component-button--border-color);
