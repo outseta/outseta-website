@@ -21,10 +21,10 @@
         font-weight: 500;
     }
 
-    .material-icons {
-        font-size: 20px;
-        width: 20px;
-        height: 20px;
+    --weight-bold: 500;
+
+    .o--text-secondary {
+        color: var(--colors-page-wrapper--text-muted);
     }
 
     /* //////////////////// Divider //////////////////// */
@@ -182,6 +182,10 @@
             }
         }
 
+        &:hover {
+            box-shadow: inherit;
+        }
+
         &.o--Button--cornerShape-rounded {
             border-radius: var(--component-button--border-radius);
         }
@@ -290,12 +294,6 @@
     .o--Badge--badge {
         font-size: 12px;
         gap: 4px;
-
-        .material-icons {
-            margin-left: 0;
-            width: 14px;
-            height: 14px;
-        }
     }
 
     /* //////////////////// Popup specific styles //////////////////// */
