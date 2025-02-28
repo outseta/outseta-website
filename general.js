@@ -48,3 +48,17 @@ if (visited) {
     // User has NOT visited or the visit data has expired
     document.querySelector('#migrateWebflow').style.display = 'none'; // Hide Webflow migrate CTA
 }
+
+// Change navbar padding on scroll
+window.addEventListener("scroll", () => {
+    let scrolled = window.scrollY > 0;
+  
+    gsap.to(document.documentElement, {
+      duration: 0.2,
+      "--component-navbar--padding-top": scrolled ? "0.5rem" : "1.5rem",
+      "--component-navbar--background-color": scrolled ? "#ffffffcc" : "#ffffff33", // Hex with alpha
+      ease: "power1.out"
+    });
+  });
+  
+  
