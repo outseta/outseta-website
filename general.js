@@ -39,14 +39,19 @@ function getItemWithExpiry(key) {
 }
 
 // Check the flag and toggle visibility of the Webflow migrate CTA
-const visited = getItemWithExpiry('visitedWebflowMigrationPage');
-if (visited) {
-    // User has visited the specific page
-    document.querySelector('#migrateWebflow').style.display = 'block'; // Show Webflow migrate CTA
-    document.querySelector('#migrateGeneral').style.display = 'none'; // Hide general migrate CTA
-} else {
-    // User has NOT visited or the visit data has expired
-    document.querySelector('#migrateWebflow').style.display = 'none'; // Hide Webflow migrate CTA
+const webflowElement = document.querySelector('#migrateWebflow');
+const generalElement = document.querySelector('#migrateGeneral');
+
+if (webflowElement && generalElement) {
+    const visited = getItemWithExpiry('visitedWebflowMigrationPage');
+    if (visited) {
+        // User has visited the specific page
+        webflowElement.style.display = 'block'; // Show Webflow migrate CTA
+        generalElement.style.display = 'none'; // Hide general migrate CTA
+    } else {
+        // User has NOT visited or the visit data has expired
+        webflowElement.style.display = 'none'; // Hide Webflow migrate CTA
+    }
 }
 
 // Change navbar padding on scroll
@@ -54,12 +59,12 @@ window.addEventListener("scroll", () => {
     let scrolled = window.scrollY > 0;
   
     gsap.to(document.documentElement, {
-      duration: 0.2,
-      "--component-navbar--padding-top": scrolled ? "0.5rem" : "1.5rem",
-      "--component-navbar--padding-top-xs": scrolled ? "0.5rem" : "1rem",
-      "--component-navbar--background-color": scrolled ? "#ffffffcc" : "#ffffff33", // Hex with alpha
-      ease: "power1.out"
+        duration: 0.2,
+        "--component-navbar--padding-top": scrolled ? "0.5rem" : "1.5rem",
+        "--component-navbar--padding-top-xs": scrolled ? "0.5rem" : "1rem",
+        "--component-navbar--background-color": scrolled ? "#ffffffcc" : "#ffffff33", // Hex with alpha
+        ease: "power1.out"
     });
-  });
+});
   
   
