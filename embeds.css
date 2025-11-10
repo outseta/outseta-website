@@ -72,7 +72,6 @@
 
     .o--Input--input,
     .o--TextArea--textArea {
-        padding: var(--component-button--vertical-padding) var(--component-button--horizontal-padding-small);
         box-shadow: var(--shadow-input);
     }
 
@@ -151,7 +150,6 @@
             select {
                 border-radius: var(--component-input--border-radius);
                 border: 1px solid var(--component-input--border-color);
-                padding: var(--component-button--vertical-padding) var(--component-button--horizontal-padding-small);
                 box-shadow: var(--shadow-input);
             }
         }
@@ -169,13 +167,11 @@
 
     .o--Button--btn {
         width: 100%;
-        padding: var(--component-button--vertical-padding) var(--component-button--horizontal-padding-small);
         font-weight: 500;
-        border-color: var(--component-button--border-color);
-        box-shadow: var(--shadow-btn);
+        border-color: transparent;
         
         &.o--Button--buttonStyle-solid {
-            background-color: var(--colors-general--primary);
+            background-color: var(--colors-general--secondary);
 
             .o--Button--children {
                 color: var(--colors-page-wrapper--text);
@@ -187,7 +183,7 @@
         }
 
         &.o--Button--cornerShape-rounded {
-            border-radius: var(--component-button--border-radius);
+            border-radius: var(--_components---component-button--border-radius);
         }
     }
 
@@ -216,28 +212,7 @@
             }
         }
 
-        [role="button"] {
-            border-radius: var(--component-button--border-radius);
-            border-color: var(--component-button--border-color);
-            box-shadow: var(--shadow-btn);
-            height: 38px;
-
-            & > div:first-child {
-                display: none;
-            }
-
-            & > div:nth-child(2) {
-                justify-content: center;
-
-                & > span {
-                    flex-grow: 0;
-                }
-            }
-
-            &:hover {
-                background-color: var(--colors-black--50);
-            }
-        }
+        
     }
 
     /* //////////////////// Payment term toggle //////////////////// */
@@ -248,7 +223,7 @@
                 a {
                     padding: var(--component-button--vertical-padding-small) var(--component-button--horizontal-padding-small);
                     border: 1px solid transparent;
-                    border-radius: var(--component-button--border-radius);
+                    border-radius: var(--_components---component-button--border-radius);
                 }
 
                 &.o--HorizontalToggle--active {
@@ -264,7 +239,7 @@
                 background-color: var(--colors-black--50);
                 border: 1px solid var(--colors-black--100);
                 padding: .125rem;
-                border-radius: calc(var(--component-button--border-radius) + .125rem);
+                border-radius: calc(var(--_components---component-button--border-radius) + .125rem);
 
                 li {
                     background: transparent;
