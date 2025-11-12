@@ -172,10 +172,6 @@
         
         &.o--Button--buttonStyle-solid {
             background-color: var(--colors-general--secondary);
-
-            .o--Button--children {
-                color: var(--colors-page-wrapper--text);
-            }
         }
 
         &:hover {
