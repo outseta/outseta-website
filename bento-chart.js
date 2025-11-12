@@ -2,7 +2,7 @@
 const verticalLinePlugin = {
     id: 'verticalLinePlugin',
     beforeDraw: function(chart, args, options) {
-      if (chart.tooltip._active && chart.tooltip._active.length) {
+      if (chart.tooltip && chart.tooltip._active && chart.tooltip._active.length) {
         const ctx = chart.ctx;
         const activePoint = chart.tooltip._active[0];
         const x = activePoint.element.x;
@@ -52,7 +52,7 @@ const myLineChart = new Chart(ctx, {
             48302, 
             49835
           ],
-        borderColor: '#ff4281',
+        borderColor: '#DF37A7',
         borderWidth: 1,
         pointStyle: false,
         tension: 0.2,
