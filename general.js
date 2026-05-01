@@ -62,7 +62,7 @@ window.addEventListener("scroll", () => {
         duration: 0.2,
         "--component-navbar--padding-top": scrolled ? "0.5rem" : "1.5rem",
         "--component-navbar--padding-top-xs": scrolled ? "0.5rem" : "1rem",
-        "--component-navbar--background-color": scrolled ? "#ffffffcc" : "#ffffff33", // Hex with alpha
+        "--component-navbar--background-color": scrolled ? "#ffffff" : "#ffffff33", // Hex with alpha
         ease: "power1.out"
     });
 });
